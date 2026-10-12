@@ -3,11 +3,15 @@ on:
   push:
     paths:
       - index.html
+      - robots.txt
+      - sitemap.xml
       - scripts/verify-root-redirect.mjs
       - .github/workflows/verify-root-redirect.yml
   pull_request:
     paths:
       - index.html
+      - robots.txt
+      - sitemap.xml
       - scripts/verify-root-redirect.mjs
       - .github/workflows/verify-root-redirect.yml
 

@@ -34,3 +34,14 @@ test('the navigation cannot become an open redirect', () => {
   assert.match(html, /location\.replace\(destination\.href\)/);
   assert.doesNotMatch(html, /URLSearchParams\(location\.search\)\.get\(['"](?:url|redirect|next)/);
 });
+
+test('origin-level crawler directives discover the live V4 sitemap without blocking existing projects', () => {
+  const robots = readFileSync(new URL('../robots.txt', import.meta.url), 'utf8');
+  const index = readFileSync(new URL('../sitemap.xml', import.meta.url), 'utf8');
+  assert.match(robots, /^User-agent: \*\s*\nAllow: \/\s*$/m);
+  assert.match(robots, /^Sitemap: https:\/\/thelabcorner\.github\.io\/sitemap\.xml$/m);
+  assert.match(index, /<sitemapindex xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
+  assert.match(index, /<loc>https:\/\/thelabcorner\.github\.io\/decarboxulator\/sitemap\.xml<\/loc>/);
+  assert.doesNotMatch(index, /<loc>https:\/\/thelabcorner\.github\.io\/<\/loc>/, 'redirected root is not a canonical page');
+  assert.doesNotMatch(robots, /Disallow:|Noindex:/i, 'do not accidentally block other GitHub user-site paths');
+});
