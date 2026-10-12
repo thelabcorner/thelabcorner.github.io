@@ -1,42 +1,224 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="5;url=https://thelabcorner.github.io/decarboxulator/">
-    <title>Redirecting...</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script>
-        setTimeout(function() {
-            window.location.href = "https://thelabcorner.github.io/decarboxulator/";
-        }, 5000); // Redirect after 5000 milliseconds (5 seconds)
-    </script>
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f8f9fa;
-            margin: 0;
-        }
-        .redirect-container {
-            text-align: center;
-            padding: 20px;
-            border-radius: 8px;
-            background: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .btn-primary {
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#aaff00">
+  <meta name="description" content="Decarboxulator has evolved. Continue to the latest scientific THCa-to-THC, edible dosage and formulation calculators in Decarboxulator V4.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <title>Upgrading your experience | Decarboxulator V4</title>
+  <!-- Preserve the indexed GitHub user-page URL as a permanent-move signal.
+       GitHub Pages does not permit a user-configured HTTP 301 for this file.
+       An immediate HTML refresh is Google's supported permanent redirect fallback. -->
+  <link rel="canonical" href="https://thelabcorner.github.io/decarboxulator/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Decarboxulator">
+  <meta property="og:title" content="Decarboxulator V4 — Upgrading your experience">
+  <meta property="og:description" content="The scientific calculation studio has moved to Decarboxulator V4.">
+  <meta property="og:url" content="https://thelabcorner.github.io/decarboxulator/">
+  <meta property="og:image" content="https://thelabcorner.github.io/decarboxulator/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="https://thelabcorner.github.io/decarboxulator/favicon.svg">
+  <meta http-equiv="refresh" content="0;url=https://thelabcorner.github.io/decarboxulator/">
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #fafafa;
+      --surface: #fff;
+      --surface-subtle: #f8f8f9;
+      --foreground: #18181b;
+      --heading: #09090b;
+      --muted: #52525b;
+      --subtle: #71717a;
+      --border: #e4e4e7;
+      --border-subtle: #eeeef0;
+      --accent: #aaff00;
+      --accent-foreground: #304a00;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--background); }
+    body {
+      min-width: 320px;
+      min-height: 100svh;
+      margin: 0;
+      padding: 20px 16px;
+      display: grid;
+      place-items: center;
+      background: var(--background);
+      color: var(--foreground);
+      font: 14px/1.6 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .upgrade {
+      width: min(100%, 510px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgb(9 9 11 / 5%);
+    }
+    .topbar {
+      min-height: 66px;
+      padding: 13px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+    .mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      flex: none;
+      border-radius: 7px;
+      background: #111113;
+    }
+    .mark svg { width: 31px; height: 31px; }
+    .identity { display: grid; gap: 1px; min-width: 0; }
+    .identity strong {
+      font-size: 14px; line-height: 1.35;
+      font-weight: 720; letter-spacing: -.35px;
+      color: var(--heading);
+    }
+    .identity small { color: var(--subtle); font-size: 11px; font-weight: 520; }
+    .version {
+      flex: none; margin-left: auto; border: 1px solid var(--border);
+      border-radius: 5px; padding: 5px 8px;
+      font-size: 11px; font-weight: 710; color: var(--muted);
+      white-space: nowrap;
+    }
+    .content { padding: 35px 28px 28px; }
+    .eyebrow {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 11px; font-weight: 750;
+      line-height: 1.4; letter-spacing: .075em; text-transform: uppercase;
+      color: var(--accent-foreground);
+    }
+    .status {
+      display: block; width: 7px; height: 7px;
+      flex: none; border-radius: 50%;
+      background: #77ad1a; box-shadow: 0 0 0 3px rgb(170 255 0 / 16%);
+    }
+    h1 {
+      margin: 17px 0 12px;
+      color: var(--heading);
+      font-size: clamp(25px, 6vw, 32px);
+      line-height: 1.17; font-weight: 735;
+      letter-spacing: -1.1px;
+    }
+    .description {
+      max-width: 47ch; margin: 0 0 26px;
+      color: var(--muted); font-size: 14px; line-height: 1.72;
+    }
+    .destination {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; padding: 13px 14px; margin-bottom: 15px;
+      border: 1px solid var(--border); border-radius: 6px;
+      background: var(--surface-subtle);
+    }
+    .destination-label {
+      display: block; margin-bottom: 4px;
+      font-size: 11px; color: var(--subtle);
+    }
+    .destination strong { font-weight: 660; font-size: 14px; color: var(--foreground); }
+    .destination svg { color: var(--subtle); flex: none; }
+    .action {
+      min-height: 46px; display: flex; align-items: center;
+      justify-content: space-between; gap: 12px;
+      padding: 12px 15px; border-radius: 6px;
+      color: #111113; background: var(--accent);
+      text-decoration: none; font-size: 14px; font-weight: 740;
+    }
+    .action:hover { background: #baff33; }
+    a:focus-visible { outline: 3px solid #6b9820; outline-offset: 3px; }
+    .note {
+      display: flex; align-items: flex-start; gap: 9px;
+      padding-top: 18px; margin-top: 18px;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--subtle); font-size: 12px; line-height: 1.6;
+    }
+    .note svg { flex: none; margin-top: 2px; }
+    .footer {
+      display: flex; flex-wrap: wrap; gap: 7px 17px;
+      padding: 15px 28px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--surface-subtle);
+      color: var(--muted); font-size: 12px;
+    }
+    .footer a { color: var(--foreground); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --background: #0e0e10;
+        --surface: #151517;
+        --surface-subtle: #111113;
+        --foreground: #e5e5e7;
+        --heading: #fafafa;
+        --muted: #a1a1aa;
+        --subtle: #a1a1aa;
+        --border: #2b2b2f;
+        --border-subtle: #252529;
+        --accent-foreground: #c1ec73;
+      }
+    }
+    @media (max-width: 420px) {
+      body { padding: 14px; }
+      .topbar { padding: 12px 18px; }
+      .content { padding: 28px 20px 24px; }
+      .footer { padding: 15px 20px; }
+      h1 { letter-spacing: -.7px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+  <script>
+    // Same-origin replacement; no JavaScript-only dependency for the redirect.
+    // Preserve historical search/query parameters for inbound bookmarked URLs.
+    (() => {
+      const destination = new URL('https://thelabcorner.github.io/decarboxulator/');
+      destination.search = location.search;
+      location.replace(destination.href);
+    })();
+  </script>
 </head>
 <body>
-    <div class="redirect-container">
-        <h1 class="mb-3">Redirecting to Calculators...</h1>
-        <p>You will be redirected in 5 seconds. If you are not redirected,</p>
-        <a href="https://thelabcorner.github.io/decarboxulator/" class="btn btn-primary">Click Here</a>
-    </div>
+  <main class="upgrade" aria-labelledby="upgrade-heading">
+    <header class="topbar">
+      <span class="mark" aria-hidden="true">
+        <!-- Activation Delta, identical geometry to Decarboxulator V4's mark. -->
+        <svg viewBox="0 0 100 100" fill="none" focusable="false">
+          <path d="M43 17 13 75h61L43 17Z" stroke="#aaff00" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M43 58h17" stroke="#aaff00" stroke-width="8" stroke-linecap="round"/>
+          <path d="m67 36 14-15m0 0 8-8m-8 8-6-8" stroke="#f5f7f6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="81" cy="21" r="4.5" fill="#f5f7f6"/>
+          <circle cx="90" cy="12" r="5.5" fill="#f5f7f6"/>
+          <circle cx="74" cy="12" r="3.5" fill="#f5f7f6"/>
+        </svg>
+      </span>
+      <div class="identity"><strong>Decarboxulator</strong><small>Scientific calculation studio</small></div>
+      <span class="version">V4 · CURRENT</span>
+    </header>
+    <section class="content">
+      <div class="eyebrow"><span class="status" aria-hidden="true"></span>Latest experience</div>
+      <h1 id="upgrade-heading">Upgrading your experience.</h1>
+      <p class="description">You're being taken to Decarboxulator V4 — a redesigned scientific workspace with the latest calculators, formulation tools, and research references.</p>
+      <div class="destination">
+        <div><span class="destination-label">Opening in Decarboxulator V4</span><strong>Calculator studio</strong></div>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      </div>
+      <a class="action" href="https://thelabcorner.github.io/decarboxulator/">
+        <span>Continue to Decarboxulator V4</span>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      </a>
+      <div class="note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg>
+        <span>Your original link is still supported. If the automatic redirect doesn't complete, use the button above.</span>
+      </div>
+    </section>
+    <footer class="footer"><span>By Jackson Cummings</span><a href="https://thedabcorner.site/">TheDabCorner</a><a href="https://github.com/thelabcorner/decarboxulator">GitHub source</a></footer>
+  </main>
 </body>
 </html>

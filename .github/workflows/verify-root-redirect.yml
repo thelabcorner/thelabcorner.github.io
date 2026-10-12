@@ -1,0 +1,23 @@
+name: Verify legacy Decarboxulator redirect
+on:
+  push:
+    paths:
+      - index.html
+      - scripts/verify-root-redirect.mjs
+      - .github/workflows/verify-root-redirect.yml
+  pull_request:
+    paths:
+      - index.html
+      - scripts/verify-root-redirect.mjs
+      - .github/workflows/verify-root-redirect.yml
+
+permissions:
+  contents: read
+
+jobs:
+  redirect-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify permanent-move and V4 upgrade fallback
+        run: node --test scripts/verify-root-redirect.mjs
